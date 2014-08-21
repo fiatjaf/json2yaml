@@ -1,19 +1,16 @@
 {
-  "author": "AJ ONeal <coolaj86@gmail.com> (http://coolaj86.com)",
-  "name": "json2yaml",
+  "author": "fiatjaf",
+  "name": "prettyaml",
   "description": "A commandline utility to convert JSON to YAML / YML",
   "keywords": ["yml", "yaml", "json", "cli", "util"],
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/coolaj86/json2yaml.git"
+    "url": "https://github.com/fiatjaf/prettyaml.git"
   },
   "bin": {
-    "json2yaml": "./cli.js",
-    "jsontoyaml": "./cli.js",
-    "jsontoyml": "./cli.js",
-    "json2yml": "./cli.js"
+    "prettyaml": "./cli.js"
   },
   "engines": {
     "node": ">= 0.2.0"
