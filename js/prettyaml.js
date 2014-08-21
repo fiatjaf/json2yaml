@@ -24,10 +24,10 @@
           // objects will not have `undefined` converted to `null`
           // as this may have unintended consequences
           // For arrays, however, this behavior seems appropriate
-          return 'null';
+          return '';
         }
       , "null": function () {
-          return 'null';
+          return '';
         }
       , "number": function (x) {
           return x;
