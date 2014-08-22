@@ -1,9 +1,9 @@
 {
   "author": "fiatjaf",
   "name": "prettyaml",
-  "description": "A commandline utility to convert JSON to YAML / YML",
+  "description": "A library and command line utility to print readable YAML",
   "keywords": ["yml", "yaml", "json", "cli", "util"],
-  "version": "1.0.4",
+  "version": "1.1.0",
   "main": "index.js",
   "repository": {
     "type": "git",

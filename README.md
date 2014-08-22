@@ -1,19 +1,16 @@
-json2yaml
+prettyaml
 ===
 
-A command-line utility to convert JSON to YAML (meaning a `.json` file to a `.yml` file)
-
-The purpose of this utility is to pretty-print JSON in the human-readable YAML object notation
-(ignore the misnomer, YAML is not a Markup Language at all).
+This is a fork of [json2yaml](https://github.com/coolaj86/json2yaml) aimed at making the printed YAML prettier and more readable for the man on the streets.
 
 Installation
 ===
 
 ```bash
-npm install -g json2yaml
+npm install -g prettyaml
 ```
 
-*Note*: To use `npm` and `json2yaml` you must have installed [NodeJS](http://nodejs.org#download).
+*Note*: To use `npm` and `prettyaml` you must have installed [NodeJS](http://nodejs.org#download).
 
 Usage
 ---
@@ -21,17 +18,14 @@ Usage
 Specify a file:
 
 ```bash
-json2yaml ./example.json > ./example.yml
-
-yaml2json ./example.yml | json2yaml > ./example.yml
+prettyaml ./example.json > ./example.yml
 ```
 
 Or pipe from stdin:
 
 ```bash
-curl -s http://foobar3000.com/echo/echo.json | json2yaml
-
-wget -qO- http://foobar3000.com/echo/echo.json | json2yaml
+curl -s http://foobar3000.com/echo/echo.json | prettyaml
+wget -qO- http://foobar3000.com/echo/echo.json | prettyaml
 ```
 
 Or require:
@@ -40,11 +34,11 @@ Or require:
 (function () {
   "use strict";
 
-  var YAML = require('json2yaml')
+  var prettyaml = require('prettyaml')
     , ymlText
     ;
 
-    ymlText = YAML.stringify({
+    ymlText = prettyaml.stringify({
       "foo": "bar"
     , "baz": "corge"
     });
@@ -67,7 +61,7 @@ So, for all the times you want to turn JSON int YAML (YML):
 , "corge": null
 , "grault": 1
 , "garply": true
-, "waldo": "false"
+, "wãldo": "false"
 , "fred": "undefined"
 }
 ```
@@ -75,16 +69,15 @@ So, for all the times you want to turn JSON int YAML (YML):
 becomes
 
 ```yaml
----
-  foo: "bar"
-  baz:
-    - "qux"
-    - "quxx"
-  corge: null
-  grault: 1
-  garply: true
-  waldo: "false"
-  fred: "undefined"
+foo: bar
+baz:
+  - qux
+  - quxx
+corge:
+grault: 1
+garply: true
+"wãldo": "false"
+fred: "undefined"
 ```
 
 *Note*: In fact, both of those Object Notations qualify as YAML
@@ -95,12 +88,3 @@ YAML can use either *whitespace and dashes* or *brackets and commas*.
 
 For human readability, the whitespace-based YAML is preferrable.
 For compression and computer readability, the JSON syntax of YAML is preferrable.
-
-Alias
-===
-
-`json2yaml` has the following aliases:
-
-  * `jsontoyaml`
-  * `json2yml`
-  * `jsontoyml`
