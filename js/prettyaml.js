@@ -16,7 +16,6 @@
   function stringify(data) {
     var handlers
       , indentLevel = -1
-      , initial = true
       ;
 
     handlers = {
@@ -73,8 +72,7 @@
               throw new Error('cannot encode this: ' + typeOf(y));
             }
 
-            output += (initial ? '' : '\n') + indent(indentLevel) + '- ' + handler(y);
-            initial = false;
+            output += '\n' + indent(indentLevel) + '- ' + handler(y);
              
           });
           indentLevel--;
@@ -115,8 +113,7 @@
               k = '"' + k + '"';
             }
 
-            output += (initial ? '' : '\n') + indent(indentLevel) + k + ': ' + handler(val);
-            initial = false;
+            output += '\n' + indent(indentLevel) + k + ': ' + handler(val);
           });
           indentLevel--;
 
@@ -128,7 +125,11 @@
         }
     };
 
-    return handlers[typeOf(data)](data);
+    var result = handlers[typeOf(data)](data);
+    if (result[0] == '\n') {
+      result = result.slice(1);
+    }
+    return result;
   }
 
   module.exports.stringify = stringify;
