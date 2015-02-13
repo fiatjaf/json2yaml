@@ -35,13 +35,17 @@
           return x ? 'true' : 'false';
         }
       , "string": function (x) {
-          // if the string has [], {}, \n, \t,  or is a enquoted number, use quotes
-          if (
+          // if the string contains newlines, use the | formatting
+          if (x.indexOf('\n') != -1) {
+            x = x.trim()
+            return '|\n' + indent(indentLevel + 1) + x.replace(/\n/g, '\n' + indent(indentLevel + 1));
+          }
+          // if the string has [], {}, \t,  or is a enquoted number, use quotes
+          else if (
             (x.indexOf('[') == 0) ||
             (x.indexOf(']') == x.length-1) ||
             (x.indexOf('{') == 0) ||
             (x.indexOf('}') == x.length-1) ||
-            (x.indexOf('\n') != -1) ||
             (x.indexOf('\t') != -1) ||
             (x == 'true') ||
             (x == 'false') ||
