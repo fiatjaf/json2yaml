@@ -111,7 +111,7 @@
             }
 
             // enquote the key if it is not a so recognizable string as it seems
-            if (!(/^\w+$/.exec(k))) {
+            if (!(/^[A-Za-z\u0080-\u00FF0-9 _-]+$/.exec(k))) {
               k.replace(/"/g, '\\"');
               k = '"' + k + '"';
             }
