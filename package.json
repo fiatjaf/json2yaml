@@ -3,7 +3,7 @@
   "name": "prettyaml",
   "description": "A library and command line utility to print readable YAML",
   "keywords": ["yml", "yaml", "json", "cli", "util"],
-  "version": "1.2.1",
+  "version": "1.3.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "node": ">= 0.2.0"
   },
   "scripts": {
-    "test": "node tests/run.js",
+    "test": "./test.sh",
     "build": "./node_modules/.bin/browserify -s prettyaml index.js > js/prettyaml.js"
   },
   "dependencies": {

@@ -75,7 +75,7 @@
               throw new Error('cannot encode this: ' + typeOf(y));
             }
 
-            output += '\n' + indent(indentLevel) + '- ' + handler(y);
+            output += (x.length > 1 ? '\n' : '') + indent(indentLevel) + '- ' + handler(y);
              
           });
           indentLevel--;
